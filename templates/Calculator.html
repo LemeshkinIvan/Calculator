@@ -1,0 +1,150 @@
+<head>
+	<title>Calculator</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<script>
+			$( document ).ready(function() {
+				console.log( "ready!" );
+
+				let userEnter = ""
+	
+				$("#num_1").click(function() {
+					userEnter += $("#num_1").val();
+					(document.getElementById("result")).value = userEnter
+					console.log(String(userEnter))
+				});
+
+				$("#num_2").click(function() {
+					userEnter += $("#num_2").val();
+					(document.getElementById("result")).value = userEnter
+					console.log(String(userEnter))
+				});
+
+				$("#num_3").click(function() {
+					userEnter += $("#num_3").val();
+					(document.getElementById("result")).value = userEnter
+					console.log(String(userEnter))
+				});
+
+				$("#num_4").click(function() {
+					userEnter += $("#num_4").val();
+					(document.getElementById("result")).value = userEnter
+					console.log(String(userEnter))
+				});
+
+				$("#num_5").click(function() {
+					userEnter += $("#num_5").val();
+					(document.getElementById("result")).value = userEnter
+					console.log(String(userEnter))
+				});
+
+				$("#num_6").click(function() {
+					userEnter += $("#num_6").val();
+					(document.getElementById("result")).value = userEnter
+					console.log(String(userEnter))
+				});
+
+				$("#num_7").click(function() {
+					userEnter += $("#num_7").val();
+					(document.getElementById("result")).value = userEnter
+					console.log(String(userEnter))
+				});
+
+				$("#num_8").click(function() {
+					userEnter += $("#num_8").val();
+					(document.getElementById("result")).value = userEnter
+					console.log(String(userEnter))
+				});
+
+				$("#num_9").click(function() {
+					userEnter += $("#num_9").val();
+					(document.getElementById("result")).value = userEnter
+					console.log(String(userEnter))
+				});
+
+				$("#num_0").click(function() {
+					userEnter += $("#num_0").val();
+					(document.getElementById("result")).value = userEnter
+					console.log(String(userEnter))
+				});
+
+				$("#addition").click(function() {
+					userEnter += $("#addition").val();
+					(document.getElementById("result")).value = userEnter
+					console.log(String(userEnter))
+				});
+
+				$("#subtraction").click(function() {
+					userEnter += $("#subtraction").val();
+					(document.getElementById("result")).value = userEnter
+					console.log(String(userEnter))
+				});
+
+				$("#multiplication").click(function() {
+					userEnter += $("#multiplication").val();
+					(document.getElementById("result")).value = userEnter
+					console.log(String(userEnter))
+				});
+
+				$("#division").click(function() {
+					userEnter += $("#division").val();
+					(document.getElementById("result")).value = userEnter
+					console.log(String(userEnter))
+				});
+
+				$("#clear").click(function() {
+					userEnter = $("#clear").val();
+					(document.getElementById("result")).value = userEnter
+					console.log("You clear field")
+				});
+
+				$("#Send").click(function(){
+            		var value = userEnter
+					$.ajax({
+						url: '/',
+						type: 'POST',
+						contentType: 'application/json',
+						data: JSON.stringify({ 'value': value }),
+						success: function(response) {
+							document.getElementById('result').value = response.result;
+							console.log("the data has been sent")
+						},
+						error: function(error) {
+							console.log(error);
+						}
+					});
+				}
+			)}	
+		)	
+		</script>
+		<input id="result"></input>
+		<br>
+		<div name = "buttons">
+			<div name = "nums-btn">
+				<button id = "num_1" value = "1">1</button>
+				<button id = "num_2" value = "2">2</button>
+				<button id = "num_3" value = "3">3</button>
+				<br>
+				<button id = "num_4" value = "4">4</button>
+				<button id = "num_5" value = "5">5</button>
+				<button id = "num_6" value = "6">6</button>
+				<br>
+				<button id = "num_7" value = "7">7</button>
+				<button id = "num_8" value = "8">8</button>
+				<button id = "num_9" value = "9">9</button>
+				<br>
+				<button id = "num_0" value = "0">0</button>
+				<button id = "clear" value = "">clear</button>
+			</div>
+			<div name = "operation">
+				<button id = "addition" value = "+">+</button>
+				<button id = "subtraction" value = "-">-</button>
+				<button id = "multiplication" value = "*">x</button>
+				<button id = "division" value = "/">:</button>
+			</div>
+			<button id="Send">Send Data</button>
+		</div>
+		<br>
+	</body>
+</html>
