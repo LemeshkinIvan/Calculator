@@ -15,7 +15,5 @@ def add_page():
     if request.method == "POST":
         data = request.get_json()
         args = (data['value'])
-        print(args)
         result = dataParse(args)
-        print(result)
         return jsonify(result=result)
